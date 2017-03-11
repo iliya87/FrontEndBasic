@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise</title>
+</head>
+<body>
+
+    <select name="select" id="select" multiple="multiple">
+        <option selected disabled hidden>Choose here</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+
+    </select>
+    <p id="demo"></p>
+    <p>
+        <form>
+        <input type="number" name="numb" max="100" id="numb">
+        <input type="submit">
+         </form>
+
+    </p>
+    <script>
+        `strict`;
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        };
+
+        document.getElementById("demo").innerHTML =
+            person.firstName + " is " + person.age + " years old.";
+    </script>
+    <script>
+        document.getElementById("numb").innerHTML
+    </script>
+    <input list="browsers_list" name="your_browser" />
+    <datalist id="browsers_list">
+        <option value="Moderator">Siyana Asenova</option>
+        <option value="Iliya Asenov" >Andmin</option>
+        <option value="Front End Level 1">FE01</option>
+    </datalist>
+        <a href="http://www.google.bg" target="_blank">
+            <input type="button" value="Google">
+            <button type="button" value="aaa">Enjoy Google</button>
+        </a>
+    <select name="chooseCar" id="selectCar">
+        <optgroup label="German">
+            <option value="audi">Audi</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="opel" selected="selected">Opel</option>
+        </optgroup>
+        <optgroup label="French">
+            <option value="renault">Renault</option>
+            <option value="peugeot">Peugeot</option>
+        </optgroup>
+    </select>
+    <input id="example1" type="range" min="1" max="100" step="1" onchange="textbox1.value = example1.value" />
+    <input id="textbox1" type="text" maxlength="3" size="3" />
+</body>
+</html>

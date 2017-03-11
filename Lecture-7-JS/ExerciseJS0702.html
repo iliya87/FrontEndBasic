@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ExerciseJs07</title>
+    </head>
+    <body>
+        <p id="tab1"></p>
+        <div id="matrix"></div>
+        <p id="resultCelsius"></p>
+        <input type="text" id="fahr" placeholder="change some F to C">
+        <input type="button" value="click" onclick="toCelcius()">
+        <script>
+            let tab1 = '<table border="1" width="40%" align="center">';
+            for(let i=0;i<8;i++){
+                tab1 += '<tr>';
+                for ( let j=0;j<8;j++){
+                    if ((i + j) % 2 != !0) {
+                        tab1 += '<td height="70" bgcolor="white"></td>'
+                    } else {
+                        tab1 += '<td height="70" bgcolor="black"></td>'
+                    }
+                }
+                tab1 += '</tr>'
+            }
+            tab1 +='</table>';
+            document.getElementById('tab1').innerHTML = tab1;
+            function toCelcius(fahrenheit) {
+                fahrenheit = document.getElementById('fahr').value;
+                if (isNaN(fahrenheit)) {
+                    alert('try Again')
+                }else {
+                    let result = (fahrenheit - 32)*5/9;
+                    document.getElementById('resultCelsius').innerHTML = result.toFixed();
+                }
+
+
+
+            }
+        </script>
+    </body>
+</html>

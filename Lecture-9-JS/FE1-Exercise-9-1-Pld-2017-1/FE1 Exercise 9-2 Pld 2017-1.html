@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 9-2</title>
+	</head>
+	<body>
+		<table id="IngredientsTable" border="3">
+			<tr>
+				<th>#</th>
+				<th>Title</th>
+				<th colspan="2">How many...?</th>
+				<th>
+					<input type="button" onclick="addNewRow();" value="+" />
+				</th>
+			</tr>
+		</table>
+		<script>
+			var index = 0;
+			function addNewRow(){
+				index++;
+				var tmp = '';
+				var newRow = document.createElement('tr');
+				newRow.id = 'row' + index;
+				tmp += '<td>' + index + '</td>';
+				tmp += '<td><input type="text" name="ingredients[' + index + '][title]" /></td>';
+				tmp += '<td><input type="number" value="0" min="0" name="ingredients[' + index + '][quantity]" /></td>';
+				tmp += '<td>';
+				tmp += '<select name="ingredients[' + index + ']">';
+				tmp += '<option>Килограм</option>';
+				tmp += '<option>Грам</option>';
+				tmp += '<option>Чаена лъжица</option>';
+				tmp += '<option>Супена лъжица</option>';
+				tmp += '<option>Шепа</option>';
+				tmp += '</select>';
+				tmp += '</td>';
+				tmp += '<td><input type="button" value="-" onclick="removeItem(' + index + ');" /></td>';
+				newRow.innerHTML = tmp;
+				document.getElementById('IngredientsTable').appendChild(newRow);
+			}
+			function removeItem(id){
+				document.getElementById('IngredientsTable').removeChild(document.getElementById('row' + id));
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+

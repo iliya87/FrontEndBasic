@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 9</title>
+	</head>
+	<body>
+		<details>
+			<summary>Options</summary>
+			<select id="countedOptions">
+				<option>First Option</option>
+				<option>Second Option</option>
+				<option>"Last" Option</option>
+			</select>
+			<input type="button" onclick="addOption('countedOptions')" value="Add new option" />
+		</details>
+		<script>
+			function addOption(id){
+				var select = document.getElementById(id);
+				var newOption = document.createElement('option');
+				var promptValue = prompt('Enter new option to the select', 'New option');
+				newOption.innerHTML = promptValue;
+				select.appendChild(newOption);
+			}
+		</script>
+		<details>
+			<summary>List</summary>
+			<ul id="list"><li>First list item</li><li>Second list item</li><li>Third list item</li>
+			</ul>
+			<input type="button" value="Add new item" onclick="addListITem();" />
+			<input type="button" value="Replace the first item" onclick="replaceListItem();" />
+			<input type="button" value="Remove the first item" onclick="removeListItem();" />
+		</details>
+		<script>
+			var list = document.getElementById('list');
+			function addListITem(){
+				var li = document.createElement('li'); // Създаваме li
+				var promptValue = prompt('Enter new list item', 'New list item'); // Потребителя въвежда информация
+				li.innerHTML = promptValue; // Добавяме въведената информация към li-то
+				list.appendChild(li); // Добавяме създаденото li към списъка
+			}
+			function replaceListItem(){
+				var promptReplaceValue = prompt('Enter new value to use in replaceChild', 'New value is entered');
+				var listItem = document.createElement('li');
+				var text = document.createTextNode(promptReplaceValue);
+				listItem.appendChild(text);
+				list.replaceChild(listItem, list.childNodes[0]);
+				// Променя стойноста на First list item, защото ключа му е нула
+			}
+			function removeListItem(){
+				list.removeChild(list.childNodes[1]);
+				// При първото кликане премахва Second list item, защото ключа му е единица
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+

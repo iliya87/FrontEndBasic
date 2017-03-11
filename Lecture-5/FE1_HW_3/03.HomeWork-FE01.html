@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FE01_HomeWork_03</title>
+    </head>
+    <body>
+        <table align="center" cellpadding="5" cellspacing="2" width="100%">
+            <tr>
+                <td width="360">
+                    <fieldset>
+                        <legend>Добавяне на нов въпрос</legend>
+                        <form method="post" action="http://Enevsoft.net/echo.php" target="frame_result" enctype="application/x-www-form-urlencoded">
+                            <table border="1" cellspacing="5" cellpadding="2">
+                                <tr>
+                                    <td>
+                                        <label for="еmail">Вашето e-mail</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="mail" id="еmail" size="25" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="about">Заглавие на въпроса</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="about" id="about" required="required" size="25" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Относно Курсове:</td>
+                                    <td>
+                                        <label>FE1
+                                            <input type="checkbox" name="courses[1]" value="1" />
+                                        </label>
+                                        <label>FE2
+                                            <input type="checkbox" name="courses[2]" value="2" />
+                                        </label>
+                                        <label>PHP1
+                                            <input type="checkbox" name="courses[3]" value="3" />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Искам Анонимност?</td>
+                                    <td>
+                                        <label>Да
+                                            <input type="radio" name="anonymous" value="1" />
+                                        </label>
+                                        <label>Не
+                                            <input type="radio" name="anonymous" value="0" />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <label for="question">Въпрос</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                   <td colspan="2">
+                                        <textarea name="question" required="required" id="question" cols="45" placeholder="Моля, не се плашете! Лесно е! :-)"></textarea>
+                                   </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="reset" value="Изчисти" />
+                                    </td>
+                                    <td align="right">
+                                        <input type="submit" value="Изпрати" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </fieldset>
+                </td>
+                <td>
+                <iframe src="frame_result" name="frame_result" scrolling="yes" width="40%" height="200%">result_frame</iframe>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise</title>
+    </head>
+    <body>
+        Check Email:
+        <input type='text' id='email' placeholder="input Email" />
+        <input type='submit' name='submit' onclick='checkEmail();' />
+        <br />
+        Draw Figure:
+        <input type="text" id="num" placeholder="input Number" />
+        <input type="submit" name="submit" onclick="drawHouse()" />
+        <br />
+        Count Matches in Text:
+        <br />
+        <textarea id="text" placeholder="input text"></textarea>
+        <br />
+        <input type="text" id="word" placeholder="input witch word to count">
+        <input type="submit" name="submit" onclick="countMatches()">
+        <br />
+        <p id="result"></p>
+        <script>
+            function checkEmail() {
+
+                let email = document.getElementById('email');
+                let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                let res = '';
+
+                if (!filter.test(email.value)) {
+                    res += 'Wrong Email';
+
+
+                } else{
+                    res += email.value;}
+                document.getElementById('result').innerHTML = res;
+            }
+            function drawHouse(){
+                let numb = Number(document.getElementById('num').value);
+                let obj = '';
+                let n = numb -1;
+                let rep = 1;
+                obj += String('A').repeat(numb -1).fontcolor('silver') + 'B'.bold().fontcolor('red').link('http://webacademy.bg/stara-zagora/') + String('A').repeat(numb -1).fontcolor('silver') + "<br />";
+                for (let i = 0; i < numb-2; i++) {
+                    obj += String('A').repeat(n -1).fontcolor('silver') + 'B'.bold().fontcolor('red') + 'A'.repeat(rep).fontcolor('silver') + 'B'.bold().fontcolor('red') + 'A'.repeat(n-1).fontcolor('silver') + '<br />';
+                    rep+=2;
+                    n --;
+                }
+                for (let i = 0; i < numb-1; i++) {
+                    obj += String('D').bold().fontcolor('red') + String('A').fontcolor('silver')
+                }
+                obj += String('D').bold().fontcolor('red') + '<br />';
+                obj += String('D').bold().fontcolor('red');
+                for (let i = 0; i < (numb*2)-3; i++) {
+                    obj += String('N').bold().fontcolor('red');
+                }
+                obj += String('D').bold().fontcolor('red') + '<br />';
+                for (let i = 0; i < numb -2; i++) {
+                    obj += 'H'.bold().fontcolor('red') + String('A').repeat((numb*2)-3).fontcolor('silver') + 'H'.bold().fontcolor('red') + '<br />'
+                }
+                obj += String('D').bold().fontcolor('red').link('https://www.w3schools.com/js/js_strings.asp');
+                for (let i = 0; i < (numb*2)-3; i++) {
+                    obj += String('N').bold().fontcolor('red');
+                }
+                obj += String('D').fontcolor('red').link('https://developer.mozilla.org/');
+                document.getElementById('result').innerHTML = obj;
+          }
+            function countMatches() {
+            let textFirst = document.getElementById('text').value;
+            let wordFirst = document.getElementById('word').value;
+            let count = textFirst.split(' ').length;
+            document.getElementById('result').innerHTML='Words are: ' + count + '<br />';
+
+          }
+        </script>
+    </body>
+</html>

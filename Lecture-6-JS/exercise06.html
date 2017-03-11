@@ -1,0 +1,81 @@
+  <!DOCTYPE HTML>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Exercise</title>
+    </head>
+    <body>
+      <p id="demo"></p>
+      <br />
+      <div id="Day"></div>
+      <label for="weekDay"></label>
+      <input id="weekDay" />
+      <button onclick="checkDay()">Check day</button>
+      <p id="resultDay"></p>
+      <input type="text" name="user_name" id="user_name" />
+      <p id="toCel"></p>
+      <script>
+        //window.alert(1+2);
+        document.write(3+4);
+        document.getElementById("demo").innerHTML = 5+6;
+        let day;
+        switch (new Date().getDay()){
+            case 0: day = "Sunday";
+            break;
+            case 1: day = "Monday";
+            break;
+            case 2: day = "Tuesday";
+            break;
+            case 3: day = "Wednesday";
+            break;
+            case 4: day = "Thursday";
+            break;
+            case 5: day = "Friday";
+            break;
+            case 6: day = "Saturday";
+            break;
+        }
+        document.getElementById('Day').innerHTML ="Today is " + day;
+        function checkDay() {
+            let weekday = Number(document.getElementById('weekDay').value);
+            let day ='';
+            switch (weekday){
+                case 0: day = "Sunday";
+                    break;
+                case 1: day = "Monday";
+                    break;
+                case 2: day = "Tuesday";
+                    break;
+                case 3: day = "Wednesday";
+                    break;
+                case 4: day = "Thursday";
+                    break;
+                case 5: day = "Friday";
+                    break;
+                case 6: day = "Saturday";
+                    break;
+                default: day = "Wrong day may be";
+        }
+        document.getElementById('resultDay').innerHTML=day;
+        }
+        let persons = [];
+        persons[0] = {
+            firstName : 'Iliya',
+            lastName : 'Asenov',
+            car: 'Opel',
+            carModel: 'Astra H - Estate 2006',
+            phone: '+35989745612',
+            favTeams:['Chelsea','Milan','Beroe']
+        };
+        persons[1]={
+            car:'BMW',
+            name:'Ivan',};
+
+        for(i = 0;i<=persons.length;i++){
+            console.log(persons[i])
+        }
+        document.write(persons[0].firstName + " " + persons[0].lastName + " " + persons[0].car + "<br />" + Math.pow(8,3)  + new Date())
+      </script>
+      <button onclick="document.write(7+8)">try it</button>
+    </body>
+  </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        let re = /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/;
+        function testInfo(phoneInput) {
+            let OK = re.exec(phoneInput.value);
+            if (!OK)
+                window.alert(phoneInput.value + ' isn\'t a phone number with area code!');
+            else
+                window.alert('Thanks, your phone number is ' + OK[0]);
+        }
+    </script>
+</head>
+<body>
+<p>Enter your phone number (with area code) and then click "Check".
+<form action="#">
+    <input id="phone"><button onclick="testInfo(document.getElementById('phone'));">Check</button>
+</form>
+</body>
+</html>

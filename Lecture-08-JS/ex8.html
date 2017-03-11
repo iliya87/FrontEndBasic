@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 8</title>
+	</head>
+	<body>
+		<input type="text" id="inp_string" value="Abv" />
+		<input type="button" value="show_info" onclick="showInfo('inp_string');" />
+		<fieldset>
+			<legend>Result</legend>
+			<div id="result"></div>
+		</fieldset>
+		<script>
+			var charInfo = ['agresiven', 'baven', 'velik'];
+			function showInfo(inp_str) {
+				var myElement = document.getElementById(inp_str);
+				var elementVal = myElement.value;
+				var elementLen = elementVal.length;
+				var arrayLen = charInfo.length;
+				
+				alert(myElement.value);
+				alert(elementVal.length);
+				var out_str = "";
+                for(var i = 0; i < elementLen; i++) {
+                    var currentChar = elementVal.substr(i,1);
+
+                    for(var j = 0; j < arrayLen; j++) {
+                        var firstChar = charInfo[j].substr(0,1);
+                        if(firstChar.toLowerCase() == currentChar.toLowerCase()) {
+                            out_str += (charInfo[j] + "<br />");
+                        }
+                    }
+                }
+
+				
+				document.getElementById('result').innerHTML = out_str;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#im{
+				border: none;
+				background: lightblue;
+			}
+		</style>
+	</head>
+	<body onload="showArray( rows );">
+		<table id="table" border="1" width="90%" align="center">
+			<thead>
+				<tr>
+					<td width="10"><button id="plus" onclick="addRow( rows );">+</button></td>
+					<th>Product name</th>
+					<td width="10"><button onclick="showArray( rows );">R</button></td>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+				
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3">&nbsp;</td>
+				</tr>
+			</tfoot>
+		</table>
+		<div><img id="im" src="http://www.tattoogen.com/tattoo/Shit%20Happens%20trial__/95.75/000000/Believe%20In%20Myself.jpg"></div>
+		<script type="text/javascript">
+			let rows = ['mercedes', 'lada', 'kosmich', 'ferrari'];
+
+			function addRow( arr ) {
+				let newVal = prompt( 'Enter new value', arr.length );
+				if ( newVal != '' && newVal != null ) {
+					arr.push ( newVal );
+					showArray ( arr );
+				}
+			}
+
+
+			function showArray( arr ) {
+				let i;
+				let temp = '';
+
+				for ( i = 0; i < arr.length; i++ ) {
+					 temp += '<tr>';
+					 temp += '<td><input type="button" onclick="delRow(rows,' + i + ');" value="-" /></td>';
+					 temp += '<td>' + arr[i] + '</td>';
+					 temp += '<td><input type="checkbox" name="tableRow[]" value="' + i + '" /></td>';
+					 temp += '</tr>';
+				}
+
+				document.getElementById( 'tbody' ).innerHTML = temp;
+			}
+
+			function delRow( arr, rowId ) {
+				arr.splice( rowId, 1 );
+				showArray( arr );
+			}
+		</script>
+	</body>
+</html>

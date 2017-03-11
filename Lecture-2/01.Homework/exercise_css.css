@@ -1,0 +1,9 @@
+.book{
+    display: table; /* keep the background color wrapped tight */
+    margin: 10px auto 10px auto; /* keep the table centered */
+    padding:10px;font-size: xx-large;background-color:green;color:#ffffff;
+    border-bottom-left-radius: 1pc;
+    border-bottom-right-radius: 1pc;
+    border-top-left-radius: 1pc;
+    border-top-right-radius: 1pc;
+}

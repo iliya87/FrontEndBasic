@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <form name="calculator">
+            <table border="1" align="center">
+                <tr>
+                    <td colspan="2" align="center">Calculator<br />
+                        <input type="text" maxlength="40" size="30" name="display" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table cellpadding="2" cellspacing="5">
+                            <tr>
+                                <td><input type="button" value="7" onclick="addDigit(7)" /></td>
+                                <td><input type="button" value="8" onclick="addDigit(8)" /></td>
+                                <td><input type="button" value="9" onclick="addDigit(9)" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" value="4" onclick="addDigit(4)" /></td>
+                                <td><input type="button" value="5" onclick="addDigit(5)" /></td>
+                                <td><input type="button" value="6" onclick="addDigit(6)" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" value="1" onclick="addDigit(1)" /></td>
+                                <td><input type="button" value="2" onclick="addDigit(2)" /></td>
+                                <td><input type="button" value="3" onclick="addDigit(3)" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" value="+/-" onclick="plusMinus()" /></td>
+                                <td><input type="button" value="0" onclick="addDigit(0)" /></td>
+                                <td><input type="button" value="." onclick="dot()" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table cellpadding="2" cellspacing="5">
+                            <tr>
+                                <td><input type="button" value="C" onclick="clear()" /></td>
+                                <td><input type="button" value="AC" onclick="allClear()" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" value="*" onclick="operate('*')" /></td>
+                                <td><input type="button" value="/" onclick="operate('/')" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" value="+" onclick="operate('+')" /></td>
+                                <td><input type="button" value="-" onclick="operate('-')" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" value="=" onclick="Calculate()" /></td>
+                                <td><input type="button" value="EXP" /></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            let memory = 0;
+            let current = 0;
+            let operation = 0;
+            let maxlength = 30;
+            function addDigit(digit) {
+                if (current.length > maxlength){
+                    current = "Too long number";
+                } else if ((eval(current)==0) && (current.indexOf('.') == -1)){
+                    current = digit;
+                }else {
+                    current = current + digit;
+                }
+                document.calculator.display.value = current;
+            }
+            function dot() {
+                if(current.length == 0){
+                    current = '0.';
+                }else {
+                    if (current.indexOf('.' == -1)){
+                        current = current + '.';
+                    }
+                }
+                document.calculator.display.value=current;
+            }
+            function plusMinus() {
+                if (current.indexOf('e') != -1){
+                    let epos = current.indexOf('e-');
+                    if (epos != -1){
+                        current = current.substring(0,1 + epos ) + '-' + current.substring(2+epos);
+                    }else {
+                        if(current.indexOf('-') == 0){
+                            current = current.substring(1);
+                        }else {
+                            current = '-' + current;
+                        }
+
+                    }
+                }
+                document.calculator.display.value = current;
+            }
+            function clear()
+            { current = "0";
+                document.calculator.display.value = current;
+            }
+
+            function allClear()
+            { current = "0";
+                operation = 0;
+                memory = "0";
+                document.calculator.display.value = current;
+            }
+            function operate(op)
+            {
+                if (op.indexOf("*") > -1) { operation = 1; }
+                if (op.indexOf("/") > -1) { operation = 2; }
+                if (op.indexOf("+") > -1) { operation = 3; }
+                if (op.indexOf("-") > -1) { operation = 4; }
+
+                memory = current;
+                current = "";
+                document.calculator.display.value = current;
+            }
+            function Calculate()
+            {
+                if (operation == 1) { current = eval(memory) * eval(current); };
+                if (operation == 2) { current = eval(memory) / eval(current); };
+                if (operation == 3) { current = eval(memory) + eval(current); };
+                if (operation == 4) { current = eval(memory) - eval(current); };
+                operation = 0;
+                memory    = "0";
+                document.calculator.display.value = current;
+            }
+            function fixCurrent()
+            {
+                current = document.calculator.display.value;
+                current = "" + parseFloat(current);
+                if (current.indexOf("NaN") != -1)
+                { current = "Aargh! I don't understand";
+                }
+                document.calculator.display.value = current;
+            }
+        </script>
+    </body>
+</html>

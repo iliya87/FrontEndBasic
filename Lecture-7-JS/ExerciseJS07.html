@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ExerciseJS</title>
+    </head>
+    <body>
+        <div id="studentTest"></div>
+        <div id="arraytest" ></div>
+        <p id="myData"></p>
+        <script>
+            function array() {
+                let text = '';
+                for (i=0;i<10;i++){
+                    text += i + "<br />"
+                }
+                return text;
+            }
+            document.getElementById('arraytest').innerHTML=array();
+            let date = new Date();
+            let person = {
+                firstName:'Iliya',
+                secondName:'Asenov',
+                age:29,
+                favMovies:['predator', 'terminator', 'alien'],
+                fullName:function () {
+                    return this.firstName + ' ' + this.secondName;
+                }
+            };
+            document.getElementById('myData').innerHTML = person.fullName();
+            alert('birthday ' + (date.getFullYear() - person.age));
+            function student(studentName, firstYear, secondYear, thirdYear, finalExam) {
+                this.studentName = studentName;
+                this.firstYear = firstYear;
+                this.secondYear = secondYear;
+                this.thirdYear = thirdYear;
+                this.finalExam = finalExam;
+                this.bonus = 20;
+                this.certificat = function () {
+                    let result = 30*(this.firstYear + this.secondYear)/200 + this.bonus + 50*(this.thirdYear + this.finalExam)/200;
+                    return result;
+                }
+            }
+            let iliya = new student('Iliya Asenov', 95, 90, 100, 87);
+             document.getElementById('studentTest').innerHTML = iliya.certificat() + " " + iliya.studentName ;
+
+        </script>
+    </body>
+</html>

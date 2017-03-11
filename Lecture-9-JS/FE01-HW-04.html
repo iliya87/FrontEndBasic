@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FE01-HomeWork-04</title>
+        <style>
+            #main{
+                border-size:1px;
+                border-style:solid;
+                border-color:blue;
+                text-align: center;
+                width: 80%;
+                margin-left: 10%;
+
+
+            }
+            #nested{
+                border-size:1px;
+                border-style:solid;
+                border-color:red;
+                width: 95%;
+                margin: auto;
+                height: 111%;
+                margin-bottom: 15px;
+                margin-top: 15px
+            }
+            #menu{
+                border-size:1px;
+                border-style: solid;
+                border-color: black;
+                background-color: #FACEB0;
+                text-align: left;
+            }
+            a:hover{
+                color: red;
+                background-color: yellow;
+                border-size:2px;
+                border-style: solid;
+                border-color:lightblue;
+
+            }
+            #img{
+                width: 100%;
+                bottom: 0;
+                overflow: hidden;
+            }
+            #table{
+                width: 90%;
+            }
+            #believe{
+                border: dashed;
+                width: 40%;
+
+            }
+            #my_form{
+                text-align: left;
+            }
+            #usedH{
+                float: right;
+            }
+            #list{
+                list-style-position: inside;
+                margin-right:20px ;
+            }
+
+        </style>
+        <script>
+            let i = 1;
+            let arr = [];
+            let temp = '';
+            let col = '<button id="expand" onclick="expand();">Expand</button>';
+            let exp = '<button id="collapse" onclick="collapse();">Collapse</button>';
+            function collapse() {
+                document.getElementById('firstCol').innerHTML = col;
+                document.getElementById('nested').style.width = "65%";
+            }
+            function expand() {
+                document.getElementById('firstCol').innerHTML = exp;
+                document.getElementById('nested').style.width = "95%";
+            }
+            function addListItem() {
+                let someText = prompt('Въведете текс');
+                let patt1 = new RegExp(/^\s+$/g);
+                if (someText == ""){
+                    alert('Input Some Text');
+                    return false;
+                }else if(someText.match(patt1)){
+                    alert('Input Some Text');
+                    return false;
+                }else if (someText == null){
+                    alert('Input Some Text');
+                    return false;
+                }else {
+                    arr[i] = someText;
+                    temp += '<li>';
+                    temp += 'Item ' + i + ': ';
+                    temp += arr[i];
+                    temp += '</li>';
+                    document.getElementById('ul_list').innerHTML= temp;
+                    i++;
+                    return true;
+                }
+            }
+            function checkForm() {
+                let name = document.forms["my_form"]["userName"].value;
+                if(name != '' && name != null ){
+                   return true;
+                }else {
+                    let val = prompt('Искате ли да Изпратите формата без име на потребителя Или Въведете име');
+                    document.forms['my_form']['userName'].value = val;
+                    if (val == ''){
+                        return true;
+                    }
+                    alert('Заявката е Отказана');
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main" align="center">
+            <div id="menu"><a  id="link1" href="">Link1 </a><a id="link2" href="">Link2 </a><a id="link3" href="">Link3 </a><a id="link4" href="">Link4 </a><a id="link5" href="">Link5</a></div>
+                <div id="nested">
+                    <table id="table" border="1" align="center" cellspacing="15px" cellpadding="5px">
+                        <tr>
+                            <td style="background: lightblue;" align="center" height="100%">
+                                <img id="believe" src="FE1_HW-4/Believe In Myself.jpg" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" id="firstCol">
+                                <button id="collapse" onclick="collapse();">Collapse</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <button id="Add_List" onclick="addListItem()">Add List Item</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <button  type="submit" form="my_form" value="Submit" id="check_form">Check Form</button>
+                            </td>
+                        </tr>
+                        <caption align="bottom">Table: Control Menu</caption>
+                    </table>
+                    <form id="my_form" name="my_form" method="post" action="http://enevsoft.net/echo.php" target="_blank" onsubmit="return checkForm();" >
+                        <fieldset>
+                            <a></a>
+                            <legend align="left">My Account:</legend>
+                            <label for="userName">My Name: </label>
+                            <input type="text" name="name" id="userName" align="left" /><br />
+                            <label for="myAge">My Years: </label>
+                            <input type="number" max="150" min="0" id="myAge" name="age" /> My Sex:
+                            <input type="radio" name="gender" value="Male" id="male" /><label for="male">Male</label>
+                            <input type="radio" name="gender" value="Female" id="female" /><label for="female">Female </label>I Speak:
+                            <input type="checkbox" id="bul" name="language[]" value="BG" checked /><label for="bul">Bulgarian </label>
+                            <input type="checkbox" id="eng" name="language[]" value="EN" /><label for="eng">English </label>
+                            <article id="usedH">
+                                <label for="used_hand">I Use</label>
+                                <select id="used_hand" name="user_hand">
+                                    <option value="right">Right</option>
+                                    <option value="left">Left</option>
+                                    <option value="no_hands">No Hands</option>
+                                </select>
+                            </article>
+                        </fieldset>
+                    </form>
+                    <div id="list" align="right">Unsorted list: <br /><ul style="list-style-type: decimal" id="ul_list"></ul></div>
+                    <p align="center"><img src="https://parksrecreation.files.wordpress.com/2012/10/i-believe.jpg" alt="Not Working" id="img"/></p>
+                </div>
+                <div style="border: solid blue">
+                    <span style="float: left"><a href="http://enevsoft.net/">Yordan Enev</a></span>
+                    <span style="float: right"><a href="http://webacademy.bg/stara-zagora/">Web Academy</a></span>
+                    <div style="clear: both"></div>
+                </div>
+        </div>
+    </body>
+</html>

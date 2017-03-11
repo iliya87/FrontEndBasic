@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 7</title>
+	</head>
+	<body>
+		<div id="randomColoredDiv">
+			This div will have random colored background
+		</div>
+		<div id="test">
+			Text from the form will be send here
+		</div>
+		<form>
+			First Name<input type="text" name="firstName" id="firstName" /><br />
+			Last Name<input type="text" name="lastName" id="lastName" /><br />
+			Tell me what you're thinking<input type="text" name="thoughts" id="thoughts" /><br />
+			<input type="button" onclick="writeToDiv();" value="Send to the div above" /><br />
+		</form>
+		<script>
+			var randomColoredDiv = document.getElementById('randomColoredDiv');
+			var testDiv = document.getElementById('test');
+			function getRandomNumber(min, max){
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			//console.log(getRandomNumber(0, 100));
+			function getRandomColorRGB(){
+				var red =  getRandomNumber(0, 255);
+				var green =  getRandomNumber(0, 255);
+				var blue =  getRandomNumber(0, 255);
+				var color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+				//console.log(color);
+				return color;
+			}
+			randomColoredDiv.style.backgroundColor = getRandomColorRGB();
+			
+			function writeToDiv(){
+				var firstName = document.getElementById('firstName').value;
+				var lastName = document.getElementById('lastName').value;
+				var thoughts = document.getElementById('thoughts').value;
+				var msg = 'My name is ' + firstName + ' ' + lastName + '<br /> and i think ' + thoughts;
+				testDiv.innerHTML = msg;
+			}
+			function student( userName, firstES, secondES, finalTheoreticalES, finalPracticalES){
+				// ES = exam score
+				this.userName = userName;
+				this.firstES = firstES;
+				this.secondES = secondES;
+				this.bonus20 = 20;
+				this.finalTheoreticalES = finalTheoreticalES;
+				this.finalPracticalES = finalPracticalES;
+				this.certificateScore = function () {
+					var calculateFinal = 30*(this.firstES + this.secondES)/200 + this.bonus20 + 50*(this.finalTheoreticalES + this.finalPracticalES)/200;
+					return calculateFinal;
+				}
+				
+			}
+			var ivanIvanov = new student('Ivan Ivanov', 90, 90, 100, 80);
+			testDiv.innerHTML = ivanIvanov.certificateScore();
+			
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

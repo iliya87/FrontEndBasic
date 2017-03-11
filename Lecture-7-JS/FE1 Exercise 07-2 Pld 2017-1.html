@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 7</title>
+	</head>
+	<body>
+		<div id="testDiv">
+		</div>
+		<script>
+			var testDiv = document.getElementById('testDiv');
+			var studentInfoArray = [
+				['wa-123456-1234', 'Ivan Ivanov', 80],
+				['wa-546889-456', 'Petar Petrov', 100],
+				['wa-213456-15', 'Mariq Angelova', 70],
+				['wa-684798-111', 'Ivelina Lambreva', 100],
+				['wa-456+9+-999', 'Miro Popov', 60],
+				['wa-111111-2222', 'Anita Petrova', 30]					
+			];
+			function arrayToTable(array){
+				var tmp = '<table border="1">';
+				tmp += '<tr><th>Студентски номер</th><th>Име</th><th>Оценка</th></tr>';
+				for(var i = 0; i < array.length; i++ ){
+					tmp += '<tr>';
+					tmp += '<td>' + array[i][0] + '</td>';
+					tmp += '<td>' + array[i][1] + '</td>';
+					tmp += '<td>' + array[i][2] + '</td>';
+					tmp += '</tr>';
+				}
+				tmp += '</table>';
+				testDiv.innerHTML = tmp;
+			}
+			arrayToTable(studentInfoArray);
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

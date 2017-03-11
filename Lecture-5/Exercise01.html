@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise</title>
+    </head>
+    <body>
+        <form target="_blank" action="http://enevsoft.net/echo.php" method="post">
+        <fieldset>
+            <legend>Personal Info:</legend>
+            Name: <input type="text" size="30" /><br />
+            Email: <input type="text" size="30" /><br />
+            Date:<input type="text" size="10" /><br />
+            Colour: <input type="color" value="#ff0000" name="favcol" /><br />
+            Date: <input type="date" /><br />
+            Month: <input type="month" /><br />
+            Email: <input type="email" name="email" disabled="disabled"><br />
+            Range: <label for="flying">Beers</label>
+            <input name="flevel" id="flying" type="range" min="0" max="100" value="0"  onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
+            <output for="flying" name="level">0</output>/100<br />
+            Google: <input type="search" name="googlesearch"><br />
+            Tel: <input type="tel" name="homephone"><br />
+            URL: <input type="url" name="urlname"><br />
+            Input button: <input type="button" onclick="alert('HelloWorld!')" value="Click Me!" /><br />
+            Button: <button type="SUBMIT" name="Submit" value="submit">Click</button>
+        </fieldset>
+    </form>
+
+        <table border="1">
+            <tr>
+                <td>
+                        <fieldset>
+                            <legend>Get Method</legend>
+                            <form method="get" height="100%" target="_blank" action="http://enevsoft.net/echo.php">
+                                <table border="1" cellspacing="5" cellpadding="2">
+                                <tr>
+                                    <th colspan="2">Car</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="regNum">Reg Number:</label>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="regNumber" id="regNum" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="Fuel">Fuel:</label>
+                                    </td>
+                                    <td>
+                                        <select name="fuel" id="Fuel">
+                                            <option value="petrol">Petrol</option>
+                                            <option value="gasoline">Gasoline</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="Brand">Brand:</label>
+                                    </td>
+                                    <td>
+                                        <select id="Brand" name="brand">
+                                            <option value="Mercedes">Mercedes</option>
+                                            <option value="BMW">BMW</option>
+                                            <option value="opel">Opel</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Color</td>
+                                    <td>
+                                        <label>Metalic
+                                            <input type="checkbox" name="Color[]" value="Metalic" />
+                                        </label>
+                                        <label>Black
+                                            <input type="checkbox" name="Color[]" value="Black" />
+                                        </label>
+                                        <label>Red
+                                            <input type="checkbox" name="Color[]" value="Red" />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="numOfDoors">Number of doors:</label>
+                                    </td>
+                                    <td>
+                                        <input type="number" name="carDoors" min="3" max="5" step="2" id="numOfDoors" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="submit" value="Submit!" />
+                                        <input type="reset" value="Clear Form">
+                                    </td>
+                                </tr>
+                            </table>
+                            </form>
+                        </fieldset>
+                </td>
+                <td>
+                    <fieldset>
+                        <legend>Post Method</legend>
+                            <form method="post" target="_blank" action="http://enevsoft.net/echo.php">
+                                <table border="1" cellpadding="2" cellspacing="5">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label for="driverName">Name:</label>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="diverName" id="driverName" placeholder="Enter your first and last name" />
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="Birthday">Birthday</label>
+                                        </td>
+                                        <td>
+                                            <input type="date" id="Birthday" name="birthday" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Education</label>
+                                        </td>
+                                        <td>
+                                            <select name="education[]" size="3" multiple="multiple">
+                                                <option value="no education">No Education</option>
+                                                <option value="high school">High school</option>
+                                                <option value="bachelor">Bachelor</option>
+                                                <option value="master">Master</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Marks</td>
+                                        <td>
+                                            <label>Birthmark
+                                                <input type="checkbox" name="marks[]" value="Birthmark" />
+                                            </label>
+                                            <label>Tatto
+                                                <input type="checkbox" name="marks[]" value="Tatto" />
+                                            </label>
+                                            <label>Mute
+                                                <input type="checkbox" name="marks[]" value="Mute" />
+                                            </label>
+                                            <label>Other
+                                                <input type="checkbox" name="marks[]" value="Other" />
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sex:</td>
+                                        <td>
+                                            <label>Female
+                                                <input type="radio" name="sex" value="female" />
+                                            </label>
+                                            <label>Male
+                                                <input type="radio" name="sex" value="male" />
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <input type="submit" value="Submit!" />
+                                            <input type="reset" value="Clear form" />
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+
+
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>

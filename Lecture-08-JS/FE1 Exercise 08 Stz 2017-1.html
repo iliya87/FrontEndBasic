@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Example8</title>
+	</head>
+	<body>
+		<p id="p1"></p>
+		<button onclick="addInArr();">Add</button>
+		<button onclick="deleteInArr();">Delete</button>
+		<input type="text" id="in" onkeyup="checkAvailable()" />
+		<p id="result"></p>
+		<script type="text/javascript" >
+			var myArr = ['name1', 'name2', 'name3', 'name4', 'name5', 'name6'];
+			var p1 = document.getElementById('p1');
+			var result = document.getElementById('result');
+			p1.innerHTML = myArr;
+			function addInArr() {
+				var prmt = prompt('Position?:','3');
+				var prmt2 = prompt('What do you want to add?','someName');
+				if (!isNaN(prmt) && prmt > 0) {
+					myArr.splice(prmt - 1, 0, prmt2);
+					result.innerHTML = myArr;
+				}else {
+					alert('You have to add a number. And this number should be <= array length!');
+				}
+			}
+			
+			function deleteInArr() {
+				var prmt = prompt('Position?:','3');
+				if (!isNaN(prmt) && prmt <= myArr.length && prmt > 0) {
+					myArr.splice(prmt - 1, 1);
+					result.innerHTML = myArr;
+				}else {
+					alert('You have to add a number. And this number have to be <= by element length!');
+				}
+			}
+			
+			function checkAvailable() {
+				var val = document.getElementById("in").value;
+				myArr.forEach(fun);
+				function fun(item) {
+					if (item == val) {
+						alert("Ima!");
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

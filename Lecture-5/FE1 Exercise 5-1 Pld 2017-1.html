@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 5</title>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td height="100%">
+					<form method="get" height="100%">
+						<table border="1" height="100%">
+							<tr>							
+								<th colspan="2">Търсене</th>
+							</tr>
+							<tr>
+								<td><label for="nameOfTheBook"> Име на книгата: </label></td>
+								<td>								
+									<input type="text" name="bookName" placeholder="Име на книгата" id="nameOfTheBook" />
+								</td>
+							</tr>
+							<tr>							
+								<td colspan="2">	
+									<label> Твърда корица
+										<input type="radio" name="bookCover" value="hardCover" />
+									</label>
+									<label> Мека корица
+										<input type="radio" name="bookCover" value="paperCover" />
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="Author"> Автор: </label></td>
+								<td>								
+									<select name="Author" id="Author">
+										<option value="Иван Вазов">Иван Вазов</option>
+										<option value="Никола Вапцаров">Никола Вапцаров</option>									
+									</select>
+								</td>
+							</tr>
+							<tr>							
+								<td colspan="2">	
+									<label>Драма
+										<input type="checkbox" name="Genre[]" value="Drama" />
+									</label>
+									<label>Екшън
+										<input type="checkbox" name="Genre[]" value="Action" />
+									</label>
+									<label>Комедия
+										<input type="checkbox" name="Genre[]" value="Comedy" />
+									</label>
+									<label>Трилър
+										<input type="checkbox" name="Genre[]" value="Thriller" />
+									</label>
+								</td>
+							</tr>
+							<tr>							
+								<td colspan="2">
+									<input type="submit" value="sumbit!" />
+									<input type="reset" value="reset the form" />
+								</td>
+							</tr>
+						</table>
+					</form>
+				</td>
+				<td>
+					<form method="get" >
+						<table border="1">
+							<tr>
+								<th colspan="2">Име и Фамилия</th>
+							</tr>
+							<tr>
+								<td><label for="fullName"> Име: </label></td>
+								<td>								
+									<input type="text" name="fullName" placeholder="Въведи име" id="fullName" />
+								</td>
+							</tr>
+							<tr>
+								<td><label for="password"> Парола: </label></td>
+								<td>								
+									<input type="password" name="password" placeholder="Въведи парола" id="password" />
+								</td>
+							</tr>
+							<tr>
+								<td><label for="phone"> Телефон: </label></td>
+								<td>								
+									<input type="tel" name="phone" placeholder="Телефон" id="phone" />
+								</td>
+							</tr>
+							<tr>
+								<td><label for="eyeColor"> Цвят на очите: </label></td>
+								<td>								
+									<input type="color" name="eyeColor" id="eyeColor" />
+								</td>
+							</tr>
+							<tr>	
+								<td>Пол:</td>
+								<td>	
+									<label> Мъж
+										<input type="radio" name="sex" value="male" />
+									</label>
+									<label> Жена
+										<input type="radio" name="sex" value="female" />
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="birthDate"> Дата на раждане </label></td>
+								<td>								
+									<input type="date" name="birthDate" id="birthDate" />
+								</td>
+							</tr>
+							<tr>
+								<td><label for="kg"> Килограми </label></td>
+								<td>								
+									0<input type="range" min="0" value="60" max="120" name="kg" id="kg" />100
+								</td>
+							</tr>
+							<tr>							
+								<td colspan="2">
+									<input type="submit" value="Send!" />
+									<input type="reset" value="Reset!" />
+								</td>
+							</tr>
+						</table>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

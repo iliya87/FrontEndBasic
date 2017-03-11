@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>lecture6</title>
+	</head>
+	<body>
+		<form name="my_form" target="result_frame" action="http://enevsoft.net/echo.php" method="get">
+			<table border="1" width="80%" align="center">
+				<caption>Car description</caption>
+				<tr>
+					<td>Brand:</td>
+					<td>
+						<select name="car_brand">
+							<option value="please_select" selected="selected">please select:</option>
+							<option value="lamborghini" >Lamborghini</option>
+							<option value="ferrari">Ferarri</option>
+						</select>					
+					</td>
+					<td rowspan="7">
+						<img width="200" src="https://www.lamborghini.com/en-en/sites/en-en/files/DAM/lamborghini/share%20img/aventador-coupe-facebook-og.jpg" alt="car">					
+					</td>		
+				</tr>
+				<tr>
+					<td>Country:</td>
+					<td>
+						<select multiple="multiple" name="country">
+							<optgroup label="Europe">
+								<option value="greece">Greece</option>
+								<option value="germany">Germany</option>
+								<option value="bulgaria">Bulgaria</option>
+							</optgroup>
+							<optgroup label="Asia">
+								<option value="japan">Japan</option>
+								<option value="china">China</option>
+							</optgroup>
+						</select>					
+					</td>
+				</tr>
+				<tr>
+					<td>Car model</td>
+					<td>
+						<input list="my_data" name="car_model" />
+							<datalist id="my_data">
+								<option value="aventador">Aventador</option>
+								<option value="reventon">Reventon</option>
+							</datalist>	
+					</td>				
+				</tr>
+				<tr>
+					<td>Color</td>
+					<td>
+						<input type="color" name="car_color" />					
+					</td>				
+				</tr>
+				<tr>
+					<td>Volan:</td>
+					<td>
+						<label for="left">L</label>
+						<input id="left" type="radio" name="car_wheel" />
+						<label for="right">R</label>
+						<input id="right" type="radio" name="car_wheel" />
+					</td>				
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td>
+						<input onchange="showRangeValue();" id="price_range" type="range" min="1000" max="9000" name="price" value="5000" />
+						<span id="result_span"></span>
+					</td>			
+				</tr>
+				<tr>
+					<td>More information:</td>	
+					<td>
+						<textarea placeholder="Your text" name="some_text" cols="50" rows="4"></textarea>					
+					</td>			
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="reset" value="Reset!" />
+						<input type="submit" value="Send" style="float: right;" />				
+					</td>				
+				</tr>
+			</table>
+		</form>
+		<center>
+			<iframe name="result_frame" width="80%" height="300">This browser didnt support iframe</iframe>
+		</center>
+		<p>Please enter your birth year</p>
+		<input type="text" id="my_year" /><br />
+		<button onclick="calculate();" type="button">Calculate</button>
+		<script type="text/javascript">
+            let price_range = document.getElementById("price_range");
+            let result_span = document.getElementById("result_span");
+			function showRangeValue(){
+				result_span.innerHTML = price_range.value;	
+			}
+			setInterval(showRangeValue,20);
+			
+			function calculate() {
+                let my_year = document.getElementById("my_year").value;
+				if(my_year != "" && !isNaN(my_year)){
+					let result = 2017 - my_year;
+					alert("Your age are: " + result);
+				}else {
+					alert("Invalid data");
+				}
+			}
+		</script>
+	</body>
+</html>
