@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS</title>
+        <style>
+            #par{
+                background: red;
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                right: 50%;
+                bottom: 50%;
+                z-index: 1;
+            }
+            #par2{
+                background: chartreuse;
+                position: relative;
+                bottom: 50%;
+                width: 200%;
+                height: 200%;
+
+            }
+            #f_btn{
+                position: fixed;bottom: 11px;
+                left: 11px;
+            }
+            #a_btn{
+                position: absolute;bottom: 11px;
+                left: 51px;
+            }
+        </style>
+        <script>
+            function changeAbs() {
+                var css_p = '';
+                if (css_p === 'black'){
+                    css_p = document.getElementById('par').style.background = 'yellow';
+                }else {
+                    css_p = document.getElementById('par').style.background ='black';
+                }
+                document.getElementById('par').innerHTML = css_p;}
+        </script>
+    </head>
+    <body>
+        <p id="par">
+            &nbsp;
+        </p>
+        <p id="par2">
+            &nbsp;
+        </p>
+        <button onclick="changeAbs()" id="f_btn">Fixed</button>
+        <button onclick="" id="a_btn">Absolute</button>
+    </body>
+</html>
