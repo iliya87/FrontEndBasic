@@ -2,59 +2,88 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>FE01-HomeWork-04</title>
+        <title>Home Work</title>
         <style>
+            html,body{
+                width: 100%;
+                height: 100%;
+                background: url("FE1_HW_51/FE1_HW_5-3.jpg") no-repeat center bottom fixed;
+                background-size: 80%;
+            }
             #main{
                 border: 1px solid blue;
-                text-align: center;
                 width: 80%;
-                margin-left: 10%;
+                margin-left: auto;
+                margin-right: auto;
             }
             #nested{
-                border-size:1px;
-                border: solid red;
+                border: 1px solid red;
                 width: 95%;
                 height: 111%;
-                margin: 15px auto;
+                margin: 15px auto 10px;
+
             }
             #menu{
-                border-size:1px;
-                border: solid black;
+                width: 100%;
+                border: 1px solid black;
                 background-color: #FACEB0;
-                text-align: left;
+                font-variant: all-small-caps;
             }
             a:hover{
                 color: red;
                 background-color: yellow;
-                border-size:2px;
-                border: solid lightblue;
-
+                border: 2px dashed blue;
             }
-            #img{
-                width: 100%;
-                bottom: 0;
-                overflow: hidden;
-            }
-            #table{
+            table{
+                border: 1px black solid;
+                margin-left: auto;
+                margin-right: auto;
                 width: 90%;
-            }
-            #believe{
-                border: dashed;
-                width: 40%;
+                empty-cells: show;
+                border-spacing: 15px 5px;
 
             }
-            #my_form{
-                text-align: left;
+            tr,td{
+                border: 1px black solid;
+
+            }
+            caption{
+                caption-side: bottom;
+
+            }
+            #td1{
+                background-color: lightblue;
+                border: none;
+            }
+            #img1{
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                border: 2px dashed black;
             }
             #usedH{
                 float: right;
-                clear: both;
-             }
-            #list{
-                list-style-position: inside;
-                margin-right:20px ;
+                clear: right;
             }
-
+            #list{
+                padding-right: 20px;
+                text-align: right;
+            }
+            #ul_list{
+                list-style: decimal inside;
+                margin-right: 20px;
+                transform: rotate(180deg);
+            }
+            #ul_list li{
+                transform: rotate(-180deg);
+            }
+            #bottom_link{
+                border: 2px solid blue;
+            }
+            #right_footer{
+                float: right;
+               clear: both;
+            }
         </style>
         <script>
             let i = 1;
@@ -96,7 +125,7 @@
             function checkForm() {
                 let name = document.forms["my_form"]["userName"].value;
                 if(name != '' && name != null ){
-                   return true;
+                    return true;
                 }else {
                     let val = prompt('Искате ли да Изпратите формата без име на потребителя Или Въведете име');
                     document.forms['my_form']['userName'].value = val;
@@ -110,13 +139,14 @@
         </script>
     </head>
     <body>
-        <div id="main" align="center">
-            <div id="menu"><a  id="link1" href="">Link1 </a><a id="link2" href="">Link2 </a><a id="link3" href="">Link3 </a><a id="link4" href="">Link4 </a><a id="link5" href="">Link5</a></div>
+        <div id="main">
+            <div id="menu"><a href="#">Link1 </a><a href="#">Link2 </a><a href="#">Link3 </a><a href="#">Link4 </a><a href="#">Link5 </a></div>
                 <div id="nested">
-                    <table id="table" border="1" align="center" cellspacing="15px" cellpadding="5px">
+                    <table>
+                        <caption>Table: Control menu</caption>
                         <tr>
-                            <td style="background: lightblue;" align="center" height="100%">
-                                <img id="believe" src="FE1_HW-4/Believe In Myself.jpg" />
+                            <td id="td1">
+                                <img id="img1" src="FE1_HW_51/FE1_HW_5-4.jpg" />
                             </td>
                         </tr>
                         <tr>
@@ -134,7 +164,6 @@
                                 <button  type="submit" form="my_form" value="Submit" id="check_form">Check Form</button>
                             </td>
                         </tr>
-                        <caption align="bottom">Table: Control Menu</caption>
                     </table>
                     <form id="my_form" name="my_form" method="post" action="http://enevsoft.net/echo.php" target="_blank" onsubmit="return checkForm();" >
                         <fieldset>
@@ -157,14 +186,12 @@
                             </span>
                         </fieldset>
                     </form>
-                    <div id="list" align="right">Unsorted list: <br /><ul style="list-style-type: decimal" id="ul_list"></ul></div>
-                    <p align="center"><img src="https://parksrecreation.files.wordpress.com/2012/10/i-believe.jpg" alt="Not Working" id="img"/></p>
+                    <div id="list">Unsorted list: <br /><ul id="ul_list"></ul></div>
+                <div id="bottom_link">
+                    <a href="http://enevsoft.net/">Yordan Enev</a>
+                    <a id="right_footer" href="http://webacademy.bg/stara-zagora/">Web Academy</a>
                 </div>
-                <div style="border: solid blue">
-                    <span style="float: left"><a href="http://enevsoft.net/">Yordan Enev</a></span>
-                    <span style="float: right"><a href="http://webacademy.bg/stara-zagora/">Web Academy</a></span>
-                    <div style="clear: both"></div>
-                </div>
+            </div>
         </div>
     </body>
 </html>

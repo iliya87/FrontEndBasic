@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exam_prep_FE01</title>
+        <style>
+            html,body{
+                width: 100%;
+                height: 100%;
+            }
+            #lastDiv{
+                width: 80%;
+                border: 4px ridge silver;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #menu{
+                text-align: center;
+                background-color: greenyellow;
+                border: 1px solid silver;
+            }
+            a{
+                margin-right: 10px;
+                color: black;
+                text-decoration: none;
+            }
+            a:hover{
+                background-color: darkolivegreen;
+                color: yellow;
+            }
+            #nested{
+                width: 98%;
+                margin-left: auto;
+                margin-right: auto;
+                border: 4px double #b3b300;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            #quote{
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                border: 2px solid silver;
+                box-shadow: 4px 4px 6px #999999;
+                margin-top: 15px;
+            }
+            #quete_color{
+                margin-top: 5px;
+                margin-bottom: 5px;
+                text-align: center;
+                margin-left: 15px;
+                margin-right: 15px;
+                background-color: greenyellow;
+                padding-top: 10px;
+                padding-bottom: 30px;
+            }
+            .quote_1{
+                color: blue;
+            }
+            #quote_bnt{
+                text-align: center;
+            }
+            #text_quote{
+                font-style: italic;
+                font-weight: bolder;
+                font-family: sans-serif;
+            }
+            #under_quote{
+                text-align: center;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+            #under_quote2{
+                width: 98%;
+                background-color: greenyellow;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+            #reset_btn{
+                float: right;
+                clear: both;
+            }
+            #belive{
+                width:60%;
+                margin-left: auto;
+                margin-right: auto;
+                border: 3px dashed black;
+                background-color: greenyellow;
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            #footer{
+                background-color: greenyellow;
+                border: 1px solid blue;
+            }
+            #footer a{
+                float: right;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="lastDiv">
+            <div id="menu">
+                <a href="#">Начало</a>
+                <a href="#">Галерия</a>
+                <a href="#">FAQ</a>
+                <a href="#">За нас</a>
+                <a href="#">Край</a>
+            </div>
+            <div id="nested">
+                <div id="quote">
+                    <div id="quete_color">
+                        <span class="quote_1">Това е блоков цитат:</span>
+                        <blockquote id="text_quote"></blockquote>
+                        <span class="quote_1">Това е span:</span><br />
+                        <span id="author"></span>
+                    </div>
+                    <div id="quote_bnt">
+                        <button type="button" name="button" id="left_btn" class="btn1" onclick="slideLeft();">&#8678; Prev</button>
+                        <button type="button" name="button" id="center_btn" class="btn1" onclick="addQuotes();">Добави</button>
+                        <button type="button" name="button" id="right_btn" class="btn1" onclick="slideRight()">Next &#8680;</button>
+                    </div>
+                </div>
+                <div id="under_quote">
+                    Размисли разни
+                </div>
+                <div id="under_quote2">
+                    Лична информация
+                </div>
+                <fieldset>
+                    <legend>Лични данни</legend>
+                    <form action="http://enevsoft.net/echo.php" target="_blank" method="post" id="user_form">
+                        <label for="user_name">Три имена*:</label>
+                        <input type="text" name="user_name" id="user_name" placeholder="Въведете трите си имена" size="30" /><br />
+                        Пол:
+                        <input type="radio" name="gender" value="male" id="male" />
+                        <label for="male">Мъж</label>
+                        <input type="radio" name="gender" value="dontKnow" id="ne_kazvam" checked="checked" />
+                        <label for="ne_kazvam">Не казвам</label>
+                        <input type="radio" name="gender" value="female" id="female" />
+                        <label for="female">Жена</label><br />
+                        <label for="date_birth">Дата на раждане:</label>
+                        <input type="text" name="date_birth" id="date_birth" placeholder="mm/dd/yyyy" /><br />
+                        <label for="user_town">Роден град:</label>
+                        <select id="city" name="city" onchange="addCity();">
+                            <option value="SZ">Stara Zagora</option>
+                            <option value="dr">Other</option>
+                        </select><br />
+                        Говорими езици:
+                        <label for="lang_bg">Български</label>
+                        <input type="checkbox" name="lan[bul]" value="bul" id="lang_bg">
+                        <label for="lang_en">Английски</label>
+                        <input type="checkbox" name="lan[en]" value="eng" id="lang_en">
+                        <label for="lang_indi">Хинди</label>
+                        <input type="checkbox" name="lan[hind]" value="hind" id="lang_indi"><br />
+                        <label for="user_tel">Телефон за контакт:</label>
+                        <input type="text" name="user_tel" id="user_tel" /><br />
+                        <textarea name="user_text" rows="8" cols="120" placeholder="Напишете нещо!!"></textarea><br />
+                        <button type="button" name="Submit" value="Submit" onclick="checkForm();">submit</button>
+                        <input type="Reset" value="Reset" id="reset_btn" />
+                    </form>
+                </fieldset>
+                <div id="belive">
+                    <img src="Believe In Myself.jpg" alt="belive">
+                </div>
+            </div>
+            <div id="footer">
+                Copyright (&copy;) 2016 Copyright Holder All Rights Reserved.
+                <a href="http://webacademy.bg/stara-zagora/" target="_blanks">Web Academy</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var allQuotes = ["Тоз, който падне в бой за свобода, той не умира…","Лудите, лудите — те да са живи!","Everybody lies"];
+            var allAuthors = ["Hr.Botev","Iv.Vazov","Dr.House"]
+            var index = 0;
+            document.getElementById('text_quote').innerHTML = allQuotes[index];
+            document.getElementById('author').innerHTML = allAuthors[index]
+            var autor = document.getElementById('author');
+            var quote = document.getElementById('text_quote');
+            function slideLeft(){
+                    if (index<1) {
+                        alert ('No more prev');
+                    } else {
+                        index--;
+                        quote.innerHTML = allQuotes[index];
+                        autor.innerHTML = allAuthors[index];
+                    }
+                }
+                function slideRight() {
+                    if (index >= allAuthors.length - 1) {
+                        alert('no more')
+                    }else {
+                        index++;
+                        quote.innerHTML = allQuotes[index];
+                        autor.innerHTML = allAuthors[index];
+                    }
+                }
+            function addQuotes(){
+                var quoteToAdd = prompt("Please enter new quote", "quote");
+                var authorToAdd = prompt("Please enter new autor", "author");
+                if (quoteToAdd !== "quote" && authorToAdd !== "author") {
+                    allQuotes.push(quoteToAdd);
+                    allAuthors.push(authorToAdd);
+                }else{
+                    alert("invalid data");
+                }
+            }
+            function addCity(){
+                var citySelect = document.getElementById("city");
+                if (citySelect.value == "dr") {
+                    var cityToAdd = prompt("Please enter new city");
+                    if (cityToAdd !== "") {
+                        citySelect.innerHTML += '<option value="' + cityToAdd + '">' + cityToAdd + '</option>';
+                    }
+                }
+            }
+            function checkForm() {
+                var user_name = document.getElementById('user_name');
+                if (user_name.value === "" && user_name.value == null) {
+                    return true;
+                }else {
+                    alert('input your name');
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>

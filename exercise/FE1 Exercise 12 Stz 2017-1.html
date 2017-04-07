@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>Ex 12</title>
+		<style>
+		*{ border: 1px dotted silver; }
+		ol li { text-transform: uppercase; }
+		ol { list-style-type: armenian; }
+		ul {
+			float: right;
+			list-style-image: url('Aodh_icon.png');
+			list-style-type: square;
+			list-style-position: inside;
+			cursor: crosshair;
+		}
+
+		td{ border: 5px ridge lightblue; }
+		table{
+			border-collapse: separate;
+			border-spacing: 11px 5px;
+			empty-cells: hide;
+			caption-side: bottom;
+			border: 5px ridge red;
+		}
+		#nested_table{ 
+			border-collapse: collapse;
+			margin:0 auto; 
+		}
+		caption{ text-align: right; }
+		#max_example{
+			width: 125px;
+			height: 161px;
+			max-height:250px;
+			max-width:270px;
+			background-color: rgba(100,100,100,0.3);
+			overflow: auto;
+			resize: both;
+			cursor: nwse-resize;
+		}
+
+		textarea{
+			padding: 20px;
+			border:1px dashed green;
+			resize: none; 
+		}
+
+		input[type=file]{ display: none; }
+		#btn_browse{ 
+			background-color: gray; 
+			border-radius: 5px;
+			color: silver;
+			position: fixed;
+			top:50%;
+			left:50%;
+			padding: 10px;
+		}
+
+		#btn_browse:hover{ 
+			background-color: silver; 
+			border-radius: 10px;
+			color: black;
+			border: 3px dotted black;
+		}
+		/* Scroll Style Example */
+		/* Let's get this party started */
+		::-webkit-scrollbar {
+		    width: 12px;
+		}
+		 
+		/* Track */
+		::-webkit-scrollbar-track {
+		    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+		    -webkit-border-radius: 10px;
+		    border-radius: 10px;
+		}
+		 
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		    -webkit-border-radius: 10px;
+		    border-radius: 10px;
+		    background: rgba(255,0,0,0.8); 
+		    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+		}
+		::-webkit-scrollbar-thumb:window-inactive {
+			background: rgba(255,0,0,0.4); 
+		}
+		</style>
+	</head>
+	<body>
+		<!-- List Style -->
+		<ol>
+			<li>text 1</li>
+			<li>text 2</li>
+			<li>text 3</li>
+		</ol>
+
+		<ul>
+			<li>text 1 sdfiajiodf asjfoasdjf</li>
+			<li>text 2 asodfsapo sadas </li>
+			<li>text 3 asdoa</li>
+		</ul>
+
+		<!-- Table Layout -->
+		<table>
+			<caption>Table 1</caption>
+			<tr>
+				<td>First</td>
+				<td>Second</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table id="nested_table">
+						<tr>
+							<td>1,1</td>
+							<td rowspan="2"></td>
+							<td>1,3</td>
+						</tr>
+						<tr>
+							<td>2,1</td>
+							<td>2,3</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>Next is empty</td>
+				<td></td>
+			</tr>
+			<tr><th colspan="2">Last Row</th></tr>
+		</table>
+		<textarea></textarea>
+		<div style="clear: both;"></div>
+		<!-- Cursor, Border, Padding, Margin and so on... -->
+		<div id="max_example">
+			Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове. Този начин не само е оцелял повече от 5 века, но е навлязъл и в публикуването на електронни издания като е запазен почти без промяна. Популяризиран е през 60те години на 20ти век със издаването на Letraset листи, съдържащи Lorem Ipsum пасажи, популярен е и в наши дни във софтуер за печатни издания като Aldus PageMaker, който включва различни версии на Lorem Ipsum.
+		</div>
+		<label>
+			<input type="file" name="ufile" />
+			<span id="btn_browse">Upload</span>
+		</label>
+	</body>
+</html>

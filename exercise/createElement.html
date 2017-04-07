@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="body">
+    <ol id="my_list" reversed="reversed"></ol><br />
+    <select name="select_car" id="select_car" onchange="addCar();">
+        <option value="bmw">BMW</option>
+        <option value="add">Add new model</option>
+    </select>
+    <input type="button" onclick="addNew()" name="List" value="AddNumber" />
+    <script>
+        let i = 1;
+        function addNew() {
+            let element = document.createElement('li');
+            element.id = 'number' + i;
+            element.innerHTML = 'New number ' + i;
+            document.getElementById('my_list').appendChild(element);
+            i++;
+        }
+        function addCar() {
+            var car = document.getElementById('select_car')
+            let element = document.createElement('option');
+            if (car.value === "add") {
+                let newCar = prompt("Enter new model car");
+                element.value = newCar;
+                element.innerHTML = newCar;
+                element.selected = "selected";
+                document.getElementById('select_car').appendChild(element);
+            }
+        }
+        var newDiv = document.createElement('div');
+        newDiv.id = 'main';
+        newDiv.style.backgroundColor = 'red';
+        newDiv.style.height = '100px';
+        newDiv.style.width = '100px';
+        document.getElementById('body').appendChild(newDiv);
+    </script>
+</body>
+</html>

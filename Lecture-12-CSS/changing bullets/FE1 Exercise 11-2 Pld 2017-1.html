@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Lecture 12-2</title>
+		<style>
+			html,body{width:100%}
+			#styleList{
+			position:fixed;
+			left:50%;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<ul id="styleList">
+			<li>Front-End 1</li>
+			<li>Front-End 2</li>
+			<li>PHP 1</li>
+		</ul>
+		<input type="button" value="prev" onclick="changeBulletImage('prev');" /></br />
+		<input type="button" value="next" onclick="changeBulletImage('next');" />
+		<script>
+			var bulletImages = ['bullet-0031_zpsyztux0lq.gif', 'purple-bullet-round.png', 'sqpurple.gif', 'images.jpg']
+			var imgKey = 2;
+			
+			function changeBulletImage( prevNext ){
+				//css- list-style-image: url('sqpurple.gif');
+				var list = document.getElementById('styleList');
+				if ( prevNext == 'prev' ){
+					imgKey--;
+					if( imgKey < 0 ){
+						imgKey = bulletImages.length - 1;
+					}
+				} else {
+					imgKey++;
+					if( imgKey > bulletImages.length - 1 ){
+						imgKey = 0;
+					}
+				}
+				console.log(imgKey);
+				list.style.listStyleImage = 'url(' + bulletImages[imgKey] + ')';
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+

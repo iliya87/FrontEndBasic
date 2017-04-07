@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Final</title>
+		<style type="text/css">
+			.center { margin:0 auto; }
+
+			#main { 
+				width: 80%;
+				border: 3px ridge silver;
+			 }
+
+			 #nav { 			 	
+			 	text-align: center;
+			 	border: 1px solid black;			 	
+			  }
+			 
+			 #nav a { 
+			 	padding: 0 10px;
+			 	text-decoration: none;
+			 	color: black;
+			  }
+
+			 #nav a:hover {
+			 	background-color: darkolivegreen;
+			 	color: yellow;
+			 }
+
+			 #content {			 	
+			 	border: 2px double green;
+			 	margin: 10px;
+			 }
+
+			 .myColor {
+			 	background-color: greenyellow;
+			 }
+
+			 #quoteContainer {
+			 	border: 2px solid silver;
+			 }
+		</style>
+	</head>
+	<body>
+		<div id="main" class="center">
+			<div id="nav" class="myColor">				
+				<a href="#">Home</a>
+				<a href="#">Galery</a>
+				<a href="#">FAQ</a>
+				<a href="#">For us</a>
+				<a href="#">End</a>
+			</div>
+
+			<div id="content" class="center">
+				<div id="quoteContainer" class="center">
+					<div class="center myColor">
+						<blockquote id="myQuote"></blockquote>
+						<span id="myAutor"></span>
+					</div>
+					<div id="buttons" class="center" style="text-align: center;">
+						<button type="button" value="prev" onclick="slideQuotes('prev');">&lt;=Prev</button>
+						<button type="button" value="add" onclick="addQuotes();">Add</button>
+						<button type="button" value="next" onclick="slideQuotes('next');">Next=&gt;</button>
+					</div>					
+				</div>
+				<div>Some thoughts</div>
+				<div class="myColor">Personal info</div>
+				<form target="_blank" action="http://enevsoft.net/echo.php" id="myForm" method="post" >
+					<fieldset>
+						<legend>Personal info</legend>
+						Name: <input id="name" type="text" name="myName" placeholder="Name"><br />
+						Sex: <lable><input type="radio" name="sex" value="male">Male</lable>
+						<lable><input type="radio" name="sex" value="Other">Other</lable>
+						<lable><input type="radio" name="sex" value="female">Female</lable><br />
+						Birthday:<input type="date" name="bday"><br />
+						Home town:
+						<select id="city" name="city" onchange="addCity();">
+							<option value="SZ">Zarata</option>
+							<option value="dr">Other</option>
+						</select><br/>
+						Languges: <label>BG<input type="checkbox" name="lng[]" value="bg"></label>
+						<label>English<input type="checkbox" name="lng[]" value="en"></label>
+						<label>Hindi<input type="checkbox" name="lng[]" value="hnd"></label><br />
+						Tel:<input type="tel" name="phone"><br/>
+						<textarea rows="15" cols="100" name="text" placeholder="Say something"></textarea><br />
+						<button id="submitButton" type="button" value="submit" onclick="checkForm();">Submit</button>
+						<input type="reset" value="Reset" style="float: right;" />
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var allQuotes = [
+				["Тоз, който падне в бой за свобода, той не умира…", "Hr.Botev"],
+				["Лудите, лудите — те да са живи!", "Iv.Vazov"],
+				["Everybody lies","Dr.House"]
+			];
+
+			var index = 1;
+			var autor = document.getElementById('myAutor');
+			var quote = document.getElementById('myQuote');		
+			
+
+			function slideQuotes(direction){
+				if (direction == "prev"){
+					if (index<1) {
+						alert ('No more prev');
+					} else {
+						index--;
+						quote.innerHTML = allQuotes[index][0];
+						autor.innerHTML = allQuotes[index][1];
+					}
+				}
+				if(direction=="next"){
+					if (index>=allQuotes.length-1) {
+						alert ('No more next');
+					} else {
+						index++;
+						quote.innerHTML = allQuotes[index][0];
+						autor.innerHTML = allQuotes[index][1];
+					}
+				}
+			}
+
+			slideQuotes('prev');
+
+			function addQuotes(){
+				var quoteToAdd = prompt("Please enter new quote", "quote");
+				var autorToAdd = prompt("Please enter new autor", "autor");
+				if (quoteToAdd !== "quote" && autorToAdd !== "autor") {
+					allQuotes.push([quoteToAdd, autorToAdd]);
+				}else{
+					alert("invalid data");
+				}
+			}
+
+			function addCity(){
+				var citySelect = document.getElementById("city");
+				if (citySelect.value == "dr") {
+					var cityToAdd = prompt("Please enter new city");
+					if (cityToAdd !== "") {
+						citySelect.innerHTML += '<option value="' + cityToAdd + '">' + cityToAdd + '</option>';
+					}
+				}
+			}
+
+			function checkForm(){
+				var userName = document.getElementById("name");
+				if (userName.value === "") {
+					userName.style.backgroundColor = "red";
+				}else{
+					userName.style.backgroundColor = "green";
+					document.getElementById("myForm").submit();
+					var grade = prompt("Enter grade");
+					if (grade > 0 && grade <= 100) {
+						document.getElementById("main").innerHTML = '<div style="text-align: center;">Your grade is ' + grade + ' </div>'
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

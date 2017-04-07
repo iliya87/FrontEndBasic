@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise</title>
+        <script>
+            let i = 1;
+            let arr = [];
+            let resultList = '';
+            function checkEmail() {
+                let email = document.getElementById('email');
+                let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                let res = '';
+                if (!filter.test(email.value)) {
+                    alert("Input correct Email")
+                } else{
+                    res += email.value;}
+                document.getElementById('email_valid').innerHTML = res;
+            }
+            function drawHouse(){
+                let numb = Number(document.getElementById('num').value);
+                let obj = '';
+                let n = numb -1;
+                let rep = 1;
+                if (isNaN(numb)){
+                    alert("Input Number !!!")
+                }else {
+                    let a = "A".fontcolor('silver');
+                    let b = "B".fontcolor('black').link('http://webacademy.bg/stara-zagora/');
+                    let d = "D".fontcolor('black').link('https://developer.mozilla.org/');
+                    let nx = "N".fontcolor('black');
+                    let h = "H".fontcolor('black');
+                    obj += a.repeat(numb -1) + b + a.repeat(numb -1) + "<br />";
+                    for (let i = 0; i < numb-2; i++) {
+                        obj += a.repeat(n -1) + b + a.repeat(rep) + b + a.repeat(n-1) + '<br />';
+                        rep+=2;
+                        n --;
+                    }
+                    for (let i = 0; i < numb-1; i++) {
+                        obj += d + a;
+                    }
+                    obj += d + '<br />';
+                    obj += d;
+                    for (let i = 0; i < (numb*2)-3; i++) {
+                        obj += nx;
+                    }
+                    obj += d + '<br />';
+                    for (let i = 0; i < numb -2; i++) {
+                        obj += h + a.repeat((numb*2)-3) + h + '<br />'
+                    }
+                    obj += d;
+                    for (let i = 0; i < (numb*2)-3; i++) {
+                        obj += nx;
+                    }
+                    obj += d;
+                }
+
+                document.getElementById('draw_house').innerHTML = obj;
+            }
+            function countMatches() {
+                let text = document.getElementById('text').value;
+                let word = document.getElementById('word').value;
+                let arr = text.split(' ');
+                let result = 0;
+                let pt = new RegExp('\\b' + word + '\\b', 'i');
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i].match(pt)) {
+                        result++;
+                    }
+
+                }
+                document.getElementById('occur_word').innerHTML = 'Matches are: ' + result + '<br />';
+            }
+            function addToList(){
+                let input = prompt('Add to list');
+                arr[i] = input
+                resultList += '<li>';
+                resultList += 'Item ' + i + ': ';
+                resultList += arr[i];
+                resultList += '</li>';
+                document.getElementById('userList').innerHTML= resultList;
+                i++;
+            }
+        </script>
+        <style>
+            #main{
+                width: 60%;
+                height: 80%;
+                background: rgba(100,30,120,0.5);
+                position: absolute;
+                left: 10%;
+                top: 10%;
+                border-radius: 15px;
+                color: blanchedalmond;
+                text-align: center;
+                padding: 20px;
+                z-index: 4;
+                font-family: "Bauhaus 93",SansSerif;
+
+            }
+            .user_button{
+                padding: 10px 8px;
+                border-radius: 10px;
+                background-color: cornflowerblue;
+                box-sizing: border-box;
+                border-style: hidden;
+            }
+            .user_button:hover{
+                background-color: #ed522f;
+            }
+            .input_user{
+                background: darkcyan;
+                border-style: hidden;
+                box-sizing: border-box;
+                border-radius: 5px;
+                display:inline-block;
+                padding: 12px 20px;
+                margin-top: 5px;
+
+            }
+            #draw_house{
+                background-color: rgba(30,200,30,0.3);
+                border-radius: 15px;
+                position: absolute;
+                top: 20%;
+                z-index: 5;
+            }
+            #email_valid{
+                border-radius: 15px;
+                background-color: rgba(76, 255, 33, 0.3);
+                position: absolute;
+                left: 15%;
+                top:5% ;
+            }
+            #table_user{
+                border: solid white 5px;
+                border-radius: 15px;
+                padding: 5px;
+                color: white;
+                margin: 15px;
+            }
+            #field{
+                border-radius: 15px;
+                color: white;
+                background-color: rgba(200,200,0,0.5);
+                margin: 15px;
+            }
+            #field legend{
+                font-family: "Bauhaus 93";
+                font-size: 2em;
+            }
+            #form_id{
+                z-index: 6;
+                position: absolute;
+                width: 35%;
+                left: 55%; top:5%;
+            }
+            .text_area{
+                background-color: rgba(200,0,0,0.2);
+                color: #ffffff;
+                font-family: "Source Code Pro","Segoe Script";
+                resize: none;
+            }
+            #userList{
+                color: white;
+                list-style: decimal;
+                display: flex;
+                flex-direction: column-reverse;
+                width: 20%;
+            }
+            #userList li {
+                flex: 0 0 auto;
+            }
+            #pos_ul{
+
+                position: absolute;
+                left: 20%;
+                top: 15%;
+            }
+            /* ==============================================================================================
+Nick Mkrtchyan
+http://www.facebook.com/sonick.pk
+http://www.Mkrtchyan.zz.mu
+================================================================================================= */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            header {
+                background-color:rgba(33, 33, 33, 0.9);
+                color:#ffffff;
+                display:block;
+                font: 14px/1.3 Arial,sans-serif;
+                height:50px;
+                position:relative;
+                z-index:5;
+            }
+            h2{
+                margin-top: 30px;
+                text-align: center;
+            }
+            header h2{
+                font-size: 22px;
+                margin: 0 auto;
+                padding: 10px 0;
+                width: 80%;
+                text-align: center;
+            }
+            header a, a:visited {
+                text-decoration:none;
+                color:#fcfcfc;
+            }
+
+            @keyframes move-twink-back {
+                from {background-position:0 0;}
+                to {background-position:-10000px 5000px;}
+            }
+            @-webkit-keyframes move-twink-back {
+                from {background-position:0 0;}
+                to {background-position:-10000px 5000px;}
+            }
+            @-moz-keyframes move-twink-back {
+                from {background-position:0 0;}
+                to {background-position:-10000px 5000px;}
+            }
+            @-ms-keyframes move-twink-back {
+                from {background-position:0 0;}
+                to {background-position:-10000px 5000px;}
+            }
+
+            @keyframes move-clouds-back {
+                from {background-position:0 0;}
+                to {background-position:10000px 0;}
+            }
+            @-webkit-keyframes move-clouds-back {
+                from {background-position:0 0;}
+                to {background-position:10000px 0;}
+            }
+            @-moz-keyframes move-clouds-back {
+                from {background-position:0 0;}
+                to {background-position:10000px 0;}
+            }
+            @-ms-keyframes move-clouds-back {
+                from {background-position: 0;}
+                to {background-position:10000px 0;}
+            }
+
+            .stars, .twinkling, .clouds {
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                width:100%;
+                height:100%;
+                display:block;
+            }
+
+            .stars {
+                background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+                z-index:0;
+            }
+
+            .twinkling{
+                background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+                z-index:1;
+
+                -moz-animation:move-twink-back 200s linear infinite;
+                -ms-animation:move-twink-back 200s linear infinite;
+                -o-animation:move-twink-back 200s linear infinite;
+                -webkit-animation:move-twink-back 200s linear infinite;
+                animation:move-twink-back 200s linear infinite;
+            }
+
+            .clouds{
+                background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+                z-index:3;
+
+                -moz-animation:move-clouds-back 200s linear infinite;
+                -ms-animation:move-clouds-back 200s linear infinite;
+                -o-animation:move-clouds-back 200s linear infinite;
+                -webkit-animation:move-clouds-back 200s linear infinite;
+                animation:move-clouds-back 200s linear infinite;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+        <div id="main">
+            Check Email:
+            <input class="input_user" type='text' id='email' placeholder="john@xyz.com.uk" />
+            <input class="user_button" type='submit' id="email_button" name='submit' onclick='checkEmail();' value="Check" />
+            <br />
+            Draw House:
+            <input class="input_user" type="text" id="num" placeholder="Number from 10 to 100" />
+            <input class="user_button" type="submit" name="submit" onclick="drawHouse()" value="Draw" />
+            <br />
+            Count occurrence word in text:
+            <br />
+            <textarea id="text" placeholder="input text" rows="20" cols="40" class="text_area">
+                Edit the Expression & Text to see matches. Roll over matches or the expression for details. Undo mistakes with ctrl-z.
+                Save Favorites & Share expressions with friends or the Community. Explore your results with Tools. A full Reference & Help is available in the Library, or watch the video Tutorial.
+                Edit the Expression & Text to see matches. Roll over matches or the expression for details. Undo mistakes with ctrl-z.
+                Save Favorites & Share expressions with friends or the Community. Explore your results with Tools. A full Reference & Help is available in the Library, or watch the video Tutorial.
+            </textarea>
+            <br />
+            <input class="input_user" type="text" id="word" placeholder="input witch word to count" />
+            <input class="user_button" type="submit" name="submit" onclick="countMatches()"  value="Count"/>
+            <br />
+            <div id="email_valid"></div>
+            <div id="occur_word"></div>
+            <div id="draw_house"></div>
+        </div>
+        <div id="form_id">
+            <form action="http://enevsoft.net/echo.php" target="frame_1" method="post" name="user_frame" id="userForm">
+                <fieldset id="field">
+                    <legend id="legend_field">Input your data:</legend>
+                    <table id="table_user">
+                        <tbody>
+                            <tr>
+                                <th><label for="userName">Name:</label></th>
+                                <td><input type="text" id="userName" name="user_Name" class="input_user" required="required" /></td>
+                                <th><label for="lastName">Last name:</label></th>
+                                <td><input type="text" id="lastName" name="last_name" class="input_user" required="required" /></td>
+                            </tr>
+                            <tr>
+                                <th><label for="userEmail">Email:</label></th>
+                                <td><input type="text" id="userEmail" name="user_email" class="input_user" required="required" /></td>
+                                <th><label for="userPhone">Phone:</label></th>
+                                <td><input id="userPhone" type="text" name="user_phone" class="input_user" required="required" /></td>
+                            </tr>
+                            <tr>
+                                <th><label for="select_car">Car:</label></th>
+                                <td>
+                                    <select id="select_car" class="input_user" required="required">
+                                        <option selected="selected" hidden="hidden">Select</option>
+                                        <optgroup label="Mercedes">
+                                            <option value="a_class">
+                                                A-Class
+                                            </option>
+                                            <option value="c_class">
+                                                C-Class
+                                            </option>
+                                            <option value="e_class">
+                                                E-Class
+                                            </option>
+                                            <option value="g_class">
+                                                G-Class
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Opel">
+                                            <option value="astra">
+                                                Astra
+                                            </option>
+                                            <option value="omega">
+                                                Omega
+                                            </option>
+                                            <option value="antara">
+                                                Antara
+                                            </option>
+                                            <option value="vectra">
+                                                Vectra
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="BMW">
+                                            <option value="bmw_1">
+                                                BMW 1
+                                            </option>
+                                            <option value="bmw_2">
+                                                BMW 2
+                                            </option>
+                                            <option value="bmw_3">
+                                                BMW 3
+                                            </option>
+                                            <option value="bmw_4">
+                                                BMW 4
+                                            </option>
+                                            <option value="bmw_5">
+                                                BMW 5
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Audi">
+                                            <option value="a_1">
+                                                Audi A1
+                                            </option>
+                                            <option value="a_2">
+                                                Audi A2
+                                            </option>
+                                            <option value="a_3">
+                                                Audi A3
+                                            </option>
+                                            <option value="a_4">
+                                                Audi A4
+                                            </option>
+                                        </optgroup>
+                                    </select>
+                                </td>
+                                <th>Driving license category:</th>
+                                <td>
+                                    <label for="category_A">A</label>
+                                    <input type="checkbox" id="category_A" name="d_license[]" value="cat_A"  />
+                                    <label for="category_B">B</label>
+                                    <input type="checkbox" id="category_B" name="d_license[]" value="cat_B"  />
+                                    <label for="category_C">C</label>
+                                    <input type="checkbox" id="category_C" name="d_license[]" value="cat_C"  />
+                                    <label for="category_CE">C+E</label>
+                                    <input type="checkbox" id="category_CE" name="d_license[]" value="cat_CE" />
+                                    <label for="category_D">D</label>
+                                    <input type="checkbox" id="category_D" name="d_license[]" value="cat_D"  />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Sex:</th>
+                                <td>
+                                    <label>Female
+                                        <input type="radio" name="sex" value="female" required="required" />
+                                    </label>
+                                    <label>Male
+                                        <input type="radio" name="sex" value="male" required="required" />
+                                    </label>
+                                </td>
+                                <th><label for="userAddress">Current Address:</label></th>
+                                <td colspan="1"><textarea rows="1" cols="30" id="userAddress" class="text_area" name="user_address"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><iframe width="100%" height="300px" name="frame_1"></iframe></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="center">
+                                    <input type="submit" value="Send Form" class="user_button" />
+                                    <input type="reset" value="Clear" class="user_button" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="center"><button class="user_button" onclick="addToList()">Add to list</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+        <div id="pos_ul"><ul id="userList"></ul></div>
+    </body>
+</html>
