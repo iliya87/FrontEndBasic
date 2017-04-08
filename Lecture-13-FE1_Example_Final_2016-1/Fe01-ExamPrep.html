@@ -102,6 +102,16 @@
                 float: right;
                 clear: both;
             }
+            #return_top{
+                border-radius: 10px;
+                border: none;
+                padding: 10px;
+                position: fixed;
+                display: block;
+                right: 50px;
+                bottom: 50px;
+
+            }
         </style>
     </head>
     <body>
@@ -175,6 +185,7 @@
                 <a href="http://webacademy.bg/stara-zagora/" target="_blanks">Web Academy</a>
             </div>
         </div>
+        <a href="#" target="_top"><button id="return_top">Up</button></a>
         <script type="text/javascript">
             var allQuotes = ["Тоз, който падне в бой за свобода, той не умира…","Лудите, лудите — те да са живи!","Everybody lies"];
             var allAuthors = ["Hr.Botev","Iv.Vazov","Dr.House"]
@@ -222,13 +233,13 @@
             }
             function checkForm() {
                 var user_name = document.getElementById('user_name');
-                if (user_name.value === "" && user_name.value == null) {
-                    return true;
-                }else {
+                if (user_name.value === "" || user_name === null) {
                     alert('input your name');
-                    return false;
+                }else {
+                    document.getElementById("user_form").submit();
                 }
             }
+
         </script>
     </body>
 </html>

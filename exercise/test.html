@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <input type="text" id="car_input" value="bmv">
+        <input type="button" name="check" value="" onclick="checkEqualLetter(car_input);">
+        <div id="result"></div>
+        <script type="text/javascript">
+            function checkEqualLetter(car) {
+                var carModels = ["b","o","n"];
+                var car = document.getElementById('car_input').value;
+                var arrCar = car.split(", ");
+                alert(arrCar.length);
+                for (var i = 0; i < arrCar.length; i++) {
+                    var word = arrCar[i].split("").shift().toLowerCase();
+                    for (var j = 0; j < carModels.length; i++) {
+                        if (word == carModels[j]) {
+                            alert("word")
+                        }else {
+                            alert("no match")
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

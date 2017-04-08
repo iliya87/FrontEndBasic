@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -7,7 +8,7 @@
             html,body{
                 width: 100%;
                 height: 100%;
-                background: url("FE1_HW_51/FE1_HW_5-3.jpg") no-repeat center bottom fixed;
+                background: url("FE1_HW_51/FE1_HW_5-3.jpg") no-repeat center bottom fixed ;
                 background-size: 80%;
             }
             #main{
@@ -124,16 +125,15 @@
             }
             function checkForm() {
                 let name = document.forms["my_form"]["userName"].value;
-                if(name != '' && name != null ){
-                    return true;
-                }else {
+                if(name === '' || name === null ){
                     let val = prompt('Искате ли да Изпратите формата без име на потребителя Или Въведете име');
-                    document.forms['my_form']['userName'].value = val;
-                    if (val == ''){
-                        return true;
+                    if (val !== '' && val !== null){
+                        document.forms['my_form']['userName'].value = val;
+                        document.getElementById("my_form").submit();
+
+                    }else {
+                        alert("Formata se prashta bez ime");
                     }
-                    alert('Заявката е Отказана');
-                    return false;
                 }
             }
         </script>
