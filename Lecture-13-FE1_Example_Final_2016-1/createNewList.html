@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body id="body">
+        <button onclick="addNew()">Add</button>
+        <script type="text/javascript">
+        function addNew(){
+                var element = document.createElement('ul');
+                element.setAttribute("id","myUl");
+                var liElemet = document.createElement('li');
+                var text = document.createTextNode("ops")
+                liElemet.appendChild(text);
+                element.appendChild(liElemet);
+
+                document.getElementById('body').appendChild(element);
+
+        }
+        </script>
+    </body>
+</html>

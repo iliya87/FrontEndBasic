@@ -3,27 +3,54 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <style media="screen">
+            #div1{
+                background-color: rgba(255, 0, 0, 0.3);
+                height: 400px;
+                border: 2px double yellowgreen;
+                width: 80%;
+                margin: 0 auto;
+                overflow: hidden;
+                position: static;
+                padding: 15px
+            }
+            #div2{
+                background-color: rgba(0, 255, 100, 0.8);
+                width: 80%;
+                height: 110%;
+                position: relative;
+                margin: 0 auto;
+                margin-bottom: 15px;
+            }
+            #img1_angry{
+                position: relative;
+                left: 0px;
+                top: 0px;
+                opacity: 0.6;
+            }
+            #img2_happy{
+                position: absolute;
+                left: 0px;
+                top:10px;
+                opacity: 0.6;
+            }
+        </style>
     </head>
     <body>
-        <input type="text" id="car_input" value="bmv">
-        <input type="button" name="check" value="" onclick="checkEqualLetter(car_input);">
-        <div id="result"></div>
+        <div id="div1">Нямам представа какво е релативен и абсолютен елемент!!!
+        <div id="div2">
+        </div>
+        <img id="img1_angry" src="https://www.cdc.gov/features/dog-bite-prevention/dog-bite-prevention_456px.jpg" alt="angry_dog" width="250">
+        <img id="img2_happy" src="http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg" alt="happy_dog" width="250">
+        </div>
+        <button type="button" name="button" onclick="changeHeight();">Change Height</button>
         <script type="text/javascript">
-            function checkEqualLetter(car) {
-                var carModels = ["b","o","n"];
-                var car = document.getElementById('car_input').value;
-                var arrCar = car.split(", ");
-                alert(arrCar.length);
-                for (var i = 0; i < arrCar.length; i++) {
-                    var word = arrCar[i].split("").shift().toLowerCase();
-                    for (var j = 0; j < carModels.length; i++) {
-                        if (word == carModels[j]) {
-                            alert("word")
-                        }else {
-                            alert("no match")
-                        }
-                    }
-                }
+            function changeHeight() {
+                var h = document.getElementById('div1');
+                h.style.height = '600px';
+                h.position = "relative";
+                document.innerHTML = h;
+
             }
         </script>
     </body>
