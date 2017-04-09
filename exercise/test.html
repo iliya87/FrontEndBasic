@@ -10,7 +10,7 @@
                 border: 2px double yellowgreen;
                 width: 80%;
                 margin: 0 auto;
-                overflow: hidden;
+
                 position: static;
                 padding: 15px
             }
@@ -44,12 +44,38 @@
         <img id="img2_happy" src="http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg" alt="happy_dog" width="250">
         </div>
         <button type="button" name="button" onclick="changeHeight();">Change Height</button>
+        <button type="button" name="button" onclick="makeUl()">MakeLi</button>
         <script type="text/javascript">
             function changeHeight() {
                 var h = document.getElementById('div1');
-                h.style.height = '600px';
-                h.position = "relative";
-                document.innerHTML = h;
+                var img = document.getElementById('img1_angry');
+                if (h.style.position === "relative") {
+                    h.style.position = "static"
+                    h.style.height = '400px';
+                    img.style.position="absolute";
+                    img.style.left = '100px';
+                    img.style.top = '100px';
+
+                }else {
+                    h.style.height = '600px';
+                    h.style.position = "relative";
+                    img.style.position="relative";
+                    img.style.left = '100px';
+                    img.style.top = '100px';
+                }
+            }
+            function makeUl() {
+
+                if (document.getElementById('ul_list')) {
+                    alert('asd');
+                    var li = document.createElement('li');
+                    li.innerHTML = "smatka";
+                    document.getElementById('ul_list').appendChild(li);
+                }else {
+                    var ul = document.createElement('ul');
+                    ul.id = 'ul_list';
+                    document.body.appendChild(ul);
+                }
 
             }
         </script>
